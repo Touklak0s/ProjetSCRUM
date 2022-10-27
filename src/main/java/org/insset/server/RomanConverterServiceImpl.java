@@ -19,23 +19,48 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
     public static final String[] Romains= {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
     public static final Integer[] Arabes= {1000,900,500,400,100,90,50,40,10,9,5,4,1};
 
-    
+    /**
+     * Méthode de conversion d'une date en chiffre Arabe a convertir en Romain
+     * @param NotreChiffre
+     * @return
+     * @throws IllegalArgumentException 
+     */
     @Override
-    public String convertDateYears(String nbr) throws IllegalArgumentException {
-        //Implement your code
-        return "XV/III/MX";
-    }
-
-    @Override
-    public Integer convertRomanToArabe(String nbr) throws IllegalArgumentException {
+    public String convertDateYears(String NotreChiffre) throws IllegalArgumentException {
+        String resultat = "";
+        String other = "";
         
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
-        Integer a = Arabes[instance.findRomanIdByValue(String.valueOf(nbr.charAt(0)))];
+        for (int i = 0; i < NotreChiffre.length(); i++){
+            if ("/".equals(String.valueOf(NotreChiffre.charAt(i)))){
+                resultat = resultat + instance.convertArabeToRoman(Integer.parseInt(other));
+                resultat = resultat + "/";
+                other = "";
+            } else {
+                other = other + String.valueOf(NotreChiffre.charAt(i));
+            }
+        }
+        resultat = resultat + instance.convertArabeToRoman(Integer.parseInt(other));
+        return resultat;
+        
+    }
+    /**
+     * Méthode de conversion Roman to Arab
+     * @param NotreChiffre
+     * @return
+     * @throws IllegalArgumentException 
+     */
+
+    @Override
+    public Integer convertRomanToArabe(String NotreChiffre) throws IllegalArgumentException {
+        
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        Integer a = Arabes[instance.findRomanIdByValue(String.valueOf(NotreChiffre.charAt(0)))];
         Integer b = 0;
         Integer resultat = a;
         
-        for (int i = 1; i < nbr.length(); i++){
-            b = Arabes[instance.findRomanIdByValue(String.valueOf(nbr.charAt(i)))];
+        for (int i = 1; i < NotreChiffre.length(); i++){
+            b = Arabes[instance.findRomanIdByValue(String.valueOf(NotreChiffre.charAt(i)))];
             
             if (b <= a){
                 resultat = resultat + b;

@@ -1,9 +1,11 @@
 package org.insset.shared;
 
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
+import com.google.gwt.regexp.shared.MatchResult;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import com.google.gwt.regexp.shared.RegExp;
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -55,22 +57,44 @@ public class FieldVerifier {
      * @param name the name to validate
      * @return true if valid, false if invalid
      */
-    public static boolean isValidDecimal(Integer nbr) {
+    public static boolean isValidDecimal(Integer NotreChiffre) {
         /*
          * Renvoie une instance d'un décimal
          */
-        return nbr instanceof Integer;
+        return NotreChiffre instanceof Integer;
     }
 
-    public static boolean isValidRoman(String nbr) {
+    public static boolean isValidRoman(String NotreChiffre) {
+        /**
+         * Vérifie par expréssion réguilère que le String fournit et bien un chiffre Romain
+         */
 //        Pattern p = Pattern.compile("^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
-//        Matcher m = p.matcher(nbr);
+//        Matcher m = p.matcher(NotreChiffre);
 //        Boolean bool = m.matches();
-     return true;
+        
+        MatchResult path = RegExp.compile("^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$").exec(NotreChiffre);
+        if (path == null )  {
+            return true;
+        } else {
+            return false;
+        }
+               
     }
 
-    public static boolean isValidDate(String date) {
-        //Implement your code
+    public static boolean isValidDate(String NotreDate) {
+        /*
+        * Vérifie que la date fournit en est bien une 
+        */
+//        if (NotreDate == null){
+//            return false;
+//        }
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//        sdf.setLenient(false);
+//        try {
+//            Date dateAVerifier = sdf.parse(NotreDate);
+//        } catch(ParseException e){
+//            return false;
+//        }
         return true;
     }
 }

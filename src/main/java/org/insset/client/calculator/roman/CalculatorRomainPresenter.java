@@ -123,11 +123,18 @@ public class CalculatorRomainPresenter extends Composite {
      * call server
      */
     private void convertRomanToArabe() {
+        /**
+         * On test les diffèrents cas d'échec
+         * 1 - Pas un nombre Romain 
+         */
         if (!FieldVerifier.isValidRoman(valR.getText())) {
             errorLabelRToA.addStyleName("serverResponseLabelError");
             errorLabelRToA.setText("Format incorect");
             return;
         }
+        /**
+         * 2- Supérieur à 3999 à faire !!
+         */
         service.convertRomanToArabe(valR.getText(), new AsyncCallback<Integer>() {
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
@@ -189,7 +196,10 @@ public class CalculatorRomainPresenter extends Composite {
      * call server
      */
     private void convertDate() {
-        //Verif
+        /**
+         * On test les diffèrents cas d'échec
+         * 1 - Pas un format de date valide
+         */
         if (!FieldVerifier.isValidDate(valD.getText())) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
             errorLabelAToR.setText("Format incorect");

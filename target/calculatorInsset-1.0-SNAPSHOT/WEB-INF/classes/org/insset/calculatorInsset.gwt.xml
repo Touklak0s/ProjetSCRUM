@@ -12,6 +12,7 @@
 
   <!-- Other module inherits                                      -->
   <inherits name='org.insset.calculatorInsset'/>
+
   <!-- Specify the app entry point class.                         -->
   <entry-point class='org.insset.client.calculatorInsset' />
 
