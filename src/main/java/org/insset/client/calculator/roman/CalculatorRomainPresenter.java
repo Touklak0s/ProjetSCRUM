@@ -146,16 +146,31 @@ public class CalculatorRomainPresenter extends Composite {
      */
     private void convertArabeToRoman() {
         Integer value = null;
+        /**
+         * On test les diffèrents cas d'échec
+         * 1 - Pas un nombre
+         */
         try {
             value = Integer.parseInt(valA.getText());
         } catch (NumberFormatException e) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
             errorLabelAToR.setText("Format incorect");
             return;
-        }
+        }    
+        /**
+        * 2 - Pas un entier
+        */
         if (!FieldVerifier.isValidDecimal(value)) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
             errorLabelAToR.setText("Format incorect");
+            return;
+        }
+        /**
+         * 3 - Supérieur à 3999
+         */
+        if ( value > 3999 ) {
+            errorLabelAToR.addStyleName("serverResponseLabelError");
+            errorLabelAToR.setText("Le nombre ne doit pas dépasser 3999 !");
             return;
         }
         service.convertArabeToRoman(Integer.parseInt(valA.getText()), new AsyncCallback<String>() {
