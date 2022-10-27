@@ -28,10 +28,31 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
 
     @Override
     public Integer convertRomanToArabe(String nbr) throws IllegalArgumentException {
-        //Implement your code
-        return 3;
+        
+        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
+        Integer a = Arabes[instance.findRomanIdByValue(String.valueOf(nbr.charAt(0)))];
+        Integer b = 0;
+        Integer resultat = a;
+        
+        for (int i = 1; i < nbr.length(); i++){
+            b = Arabes[instance.findRomanIdByValue(String.valueOf(nbr.charAt(i)))];
+            
+            if (b <= a){
+                resultat = resultat + b;
+            } else {
+                resultat = resultat + b -(2*a);
+            }
+            a = b;
+        }
+        return resultat;
     }
 
+    /**
+     * Méthode de conversion Arabe to Roman 
+     * @param NotreChiffre
+     * @return
+     * @throws IllegalArgumentException 
+     */
  @Override
     public String convertArabeToRoman(Integer NotreChiffre) throws IllegalArgumentException {
         String resultat = "";

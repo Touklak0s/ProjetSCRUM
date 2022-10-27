@@ -1,5 +1,9 @@
 package org.insset.shared;
 
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -59,8 +63,10 @@ public class FieldVerifier {
     }
 
     public static boolean isValidRoman(String nbr) {
-        //Implement your code
-        return true;
+//        Pattern p = Pattern.compile("^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
+//        Matcher m = p.matcher(nbr);
+//        Boolean bool = m.matches();
+     return true;
     }
 
     public static boolean isValidDate(String date) {
