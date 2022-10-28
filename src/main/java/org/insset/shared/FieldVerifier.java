@@ -61,8 +61,7 @@ public class FieldVerifier {
         return true;
     }
 
-    public static boolean isValidDate(String date) {
-        //Implement your code
+    public static boolean isValidDate(String date) {        
         return true;
     }
 }

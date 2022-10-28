@@ -28,7 +28,16 @@
   </servlet-mapping>
   
   <!-- Add your servlet -->
-  
+    <servlet>
+        <servlet-name>Pourcentage</servlet-name>
+        <servlet-class>Pourcentage.Pourcentage</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Pourcentage</servlet-name>
+        <url-pattern>/calculatorInsset/Pourcentage</url-pattern>
+    </servlet-mapping>
+    
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>calculatorInsset.html</welcome-file>

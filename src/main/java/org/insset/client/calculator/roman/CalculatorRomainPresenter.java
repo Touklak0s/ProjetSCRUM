@@ -158,6 +158,8 @@ public class CalculatorRomainPresenter extends Composite {
             errorLabelAToR.setText("Format incorect");
             return;
         }
+        
+        
         service.convertArabeToRoman(Integer.parseInt(valA.getText()), new AsyncCallback<String>() {
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
