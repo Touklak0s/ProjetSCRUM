@@ -1,11 +1,10 @@
 package org.insset.shared;
 
-
+import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.regexp.shared.RegExp;
 import com.google.gwt.regexp.shared.MatchResult;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import com.google.gwt.regexp.shared.RegExp;
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -68,15 +67,12 @@ public class FieldVerifier {
         /**
          * Vérifie par expréssion réguilère que le String fournit et bien un chiffre Romain
          */
-//        Pattern p = Pattern.compile("^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
-//        Matcher m = p.matcher(NotreChiffre);
-//        Boolean bool = m.matches();
         
-        MatchResult path = RegExp.compile("^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$").exec(NotreChiffre);
+        MatchResult path = RegExp.compile("^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$").exec(NotreChiffre);
         if (path == null )  {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
                
     }
@@ -85,16 +81,19 @@ public class FieldVerifier {
         /*
         * Vérifie que la date fournit en est bien une 
         */
-//        if (NotreDate == null){
-//            return false;
-//        }
-//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-//        sdf.setLenient(false);
-//        try {
-//            Date dateAVerifier = sdf.parse(NotreDate);
-//        } catch(ParseException e){
-//            return false;
-//        }
+        if (NotreDate == null){
+            return false;
+        }
+        DateTimeFormat dateFormatter = DateTimeFormat.getFormat("dd/MM/yyyy");
+        
+        //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        //sdf.setLenient(false);
+        try {
+            //Date dateAVerifier = sdf.parse(NotreDate);
+            Date dateAVerif = dateFormatter.parse(NotreDate);
+        } catch(IllegalArgumentException e){
+            return false;
+        }
         return true;
     }
 }

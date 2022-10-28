@@ -129,12 +129,9 @@ public class CalculatorRomainPresenter extends Composite {
          */
         if (!FieldVerifier.isValidRoman(valR.getText())) {
             errorLabelRToA.addStyleName("serverResponseLabelError");
-            errorLabelRToA.setText("Format incorect");
+            errorLabelRToA.setText("Pas un chiffre Romain");
             return;
         }
-        /**
-         * 2- Supérieur à 3999 à faire !!
-         */
         service.convertRomanToArabe(valR.getText(), new AsyncCallback<Integer>() {
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
@@ -161,7 +158,7 @@ public class CalculatorRomainPresenter extends Composite {
             value = Integer.parseInt(valA.getText());
         } catch (NumberFormatException e) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Format faux !");
             return;
         }    
         /**
@@ -169,7 +166,7 @@ public class CalculatorRomainPresenter extends Composite {
         */
         if (!FieldVerifier.isValidDecimal(value)) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Pas un entier !");
             return;
         }
         /**
@@ -201,8 +198,8 @@ public class CalculatorRomainPresenter extends Composite {
          * 1 - Pas un format de date valide
          */
         if (!FieldVerifier.isValidDate(valD.getText())) {
-            errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelD.addStyleName("serverResponseLabelError");
+            errorLabelD.setText("Format de date faux !");
             return;
         }
         //call server
