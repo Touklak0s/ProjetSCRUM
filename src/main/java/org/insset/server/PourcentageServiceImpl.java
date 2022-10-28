@@ -12,7 +12,8 @@ import org.insset.client.service.PourcentageService;
 public class PourcentageServiceImpl extends RemoteServiceServlet implements
         PourcentageService {
 
-    public String calculPourcentageGAIN(Integer nbr1, Integer nbr2) throws IllegalArgumentException {
+    @Override
+    public String calculPourcentageGAIN(String[] tabVal) throws IllegalArgumentException {
         
         float prix_remise;
         float valeur_remise;
@@ -20,14 +21,41 @@ public class PourcentageServiceImpl extends RemoteServiceServlet implements
         DecimalFormat df = new DecimalFormat("##.##");
         df.setRoundingMode(RoundingMode.DOWN);
         
-        valeur_remise = nbr2 * (float) 0.01;
-        prix_remise = nbr1 * valeur_remise;
+        valeur_remise = Integer.parseInt(tabVal[1]) * (float) 0.01;
+        prix_remise = Integer.parseInt(tabVal[0]) * valeur_remise;
         
-        return df.format(prix_remise);
+        return "Votre article est au prix originel de " + tabVal[0] + " avec une réduction de " + tabVal[1] + "% ce qui vous fait économiser : " + df.format(prix_remise)+"€";
     }
-
+    
     @Override
-    public Integer calculPourcentageGAIN(String nbr1, String nbr2) throws IllegalArgumentException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String calculPourcentageINITIAL(String[] tabVal) throws IllegalArgumentException {
+        
+        float prix_depart;
+        float valeur_remise;
+        
+        DecimalFormat df = new DecimalFormat("##.##");
+        df.setRoundingMode(RoundingMode.DOWN);
+        
+        valeur_remise = Integer.parseInt(tabVal[1]) * (float) 0.01;
+        prix_depart = Integer.parseInt(tabVal[0]) * (1+valeur_remise);
+        
+        return "Votre article est au prix solder de " + tabVal[0] + " avec une réduction de " + tabVal[1] + "% ce qui vous un prix initial de : " + df.format(prix_depart)+"€";
+        
+    }
+    
+    @Override
+    public String calculDiviseur(String[] tabVal) throws IllegalArgumentException {
+        
+        float result;
+        String s = new String();
+        
+        if ((Integer.parseInt(tabVal[0]) == 0) || (Integer.parseInt(tabVal[1]) == 0))
+        {
+            return "Division par 0 impossible !";
+        }else{
+            result = Integer.parseInt(tabVal[0]) / Integer.parseInt(tabVal[1]);
+            return "Resultat de votre division : " + s.valueOf(result);
+        }
+        
     }
 }

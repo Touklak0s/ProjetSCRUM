@@ -12,10 +12,13 @@ public interface PourcentageService extends RemoteService {
     /**
      * Calcul pourcentage
      *
-     * @param nbr1
-     * @param nbr2
+     * @param tabVal
      * @return
      * @throws IllegalArgumentException
      */
-    Integer calculPourcentageGAIN(String nbr1, String nbr2) throws IllegalArgumentException;
+    String calculPourcentageGAIN(String[] tabVal) throws IllegalArgumentException;
+    
+    String calculPourcentageINITIAL(String[] tabVal) throws IllegalArgumentException;
+    
+    String calculDiviseur(String[] tabVal) throws IllegalArgumentException;
 }

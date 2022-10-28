@@ -13,7 +13,7 @@ import com.google.gwt.user.client.rpc.impl.RpcStatsContext;
 
 public class PourcentageService_Proxy extends RemoteServiceProxy implements org.insset.client.service.PourcentageServiceAsync {
   private static final String REMOTE_SERVICE_INTERFACE_NAME = "org.insset.client.service.PourcentageService";
-  private static final String SERIALIZATION_POLICY ="2B260F65D039F5FB7DE2D330525AEB6C";
+  private static final String SERIALIZATION_POLICY ="BA04ACB67342BE5EA0483F201A3D54F3";
   private static final org.insset.client.service.PourcentageService_TypeSerializer SERIALIZER = new org.insset.client.service.PourcentageService_TypeSerializer();
   
   public PourcentageService_Proxy() {
@@ -23,15 +23,37 @@ public class PourcentageService_Proxy extends RemoteServiceProxy implements org.
       SERIALIZER);
   }
   
-  public void calculPourcentageGAIN(java.lang.String nbr1, java.lang.String nbr2, com.google.gwt.user.client.rpc.AsyncCallback callback) {
+  public void calculDiviseur(java.lang.String[] tabVal, com.google.gwt.user.client.rpc.AsyncCallback callback) {
+    com.google.gwt.user.client.rpc.impl.RemoteServiceProxy.ServiceHelper helper = new com.google.gwt.user.client.rpc.impl.RemoteServiceProxy.ServiceHelper("PourcentageService_Proxy", "calculDiviseur");
+    try {
+      SerializationStreamWriter streamWriter = helper.start(REMOTE_SERVICE_INTERFACE_NAME, 1);
+      streamWriter.writeString("[Ljava.lang.String;/2600011424");
+      streamWriter.writeObject(tabVal);
+      helper.finish(callback, ResponseReader.STRING);
+    } catch (SerializationException ex) {
+      callback.onFailure(ex);
+    }
+  }
+  
+  public void calculPourcentageGAIN(java.lang.String[] tabVal, com.google.gwt.user.client.rpc.AsyncCallback callback) {
     com.google.gwt.user.client.rpc.impl.RemoteServiceProxy.ServiceHelper helper = new com.google.gwt.user.client.rpc.impl.RemoteServiceProxy.ServiceHelper("PourcentageService_Proxy", "calculPourcentageGAIN");
     try {
-      SerializationStreamWriter streamWriter = helper.start(REMOTE_SERVICE_INTERFACE_NAME, 2);
-      streamWriter.writeString("java.lang.String/2004016611");
-      streamWriter.writeString("java.lang.String/2004016611");
-      streamWriter.writeString(nbr1);
-      streamWriter.writeString(nbr2);
-      helper.finish(callback, ResponseReader.OBJECT);
+      SerializationStreamWriter streamWriter = helper.start(REMOTE_SERVICE_INTERFACE_NAME, 1);
+      streamWriter.writeString("[Ljava.lang.String;/2600011424");
+      streamWriter.writeObject(tabVal);
+      helper.finish(callback, ResponseReader.STRING);
+    } catch (SerializationException ex) {
+      callback.onFailure(ex);
+    }
+  }
+  
+  public void calculPourcentageINITIAL(java.lang.String[] tabVal, com.google.gwt.user.client.rpc.AsyncCallback callback) {
+    com.google.gwt.user.client.rpc.impl.RemoteServiceProxy.ServiceHelper helper = new com.google.gwt.user.client.rpc.impl.RemoteServiceProxy.ServiceHelper("PourcentageService_Proxy", "calculPourcentageINITIAL");
+    try {
+      SerializationStreamWriter streamWriter = helper.start(REMOTE_SERVICE_INTERFACE_NAME, 1);
+      streamWriter.writeString("[Ljava.lang.String;/2600011424");
+      streamWriter.writeObject(tabVal);
+      helper.finish(callback, ResponseReader.STRING);
     } catch (SerializationException ex) {
       callback.onFailure(ex);
     }

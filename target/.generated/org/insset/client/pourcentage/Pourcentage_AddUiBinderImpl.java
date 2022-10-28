@@ -1,4 +1,4 @@
-// .ui.xml template last modified: 1666955136000
+// .ui.xml template last modified: 1666963445000
 package org.insset.client.pourcentage;
 
 import com.google.gwt.core.client.GWT;
@@ -104,9 +104,9 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel2(), get_domId1Element().get());
       f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel10(), get_domId2Element().get());
       f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel16(), get_domId3Element().get());
-      f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel24(), get_domId4Element().get());
-      f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel30(), get_domId5Element().get());
-      f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel38(), get_domId6Element().get());
+      f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel26(), get_domId4Element().get());
+      f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel32(), get_domId5Element().get());
+      f_HTMLPanel1.addAndReplaceElement(get_f_FlowPanel42(), get_domId6Element().get());
 
       return f_HTMLPanel1;
     }
@@ -578,8 +578,9 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       f_FlowPanel16.add(get_f_FlowPanel17());
       f_FlowPanel16.add(get_f_FlowPanel19());
       f_FlowPanel16.add(get_f_FlowPanel21());
-      f_FlowPanel16.add(get_f_FlowPanel22());
       f_FlowPanel16.add(get_f_FlowPanel23());
+      f_FlowPanel16.add(get_f_FlowPanel24());
+      f_FlowPanel16.add(get_f_FlowPanel25());
 
       return f_FlowPanel16;
     }
@@ -609,7 +610,7 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.Label f_Label18 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
       // Setup section.
-      f_Label18.setText("CALCUL DU POURCENTAGE INVERSE");
+      f_Label18.setText("-----------------------------------------------------------------");
 
       return f_Label18;
     }
@@ -639,7 +640,7 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.Label f_Label20 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
       // Setup section.
-      f_Label20.setText("Entre le prix de votre article");
+      f_Label20.setText("CALCUL DU POURCENTAGE INVERSE");
 
       return f_Label20;
     }
@@ -654,9 +655,39 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel21 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel21.add(get_valC());
+      f_FlowPanel21.add(get_f_Label22());
 
       return f_FlowPanel21;
+    }
+
+    /**
+     * Getter for f_Label22 called 1 times. Type: DEFAULT. Build precedence: 4.
+     */
+    private com.google.gwt.user.client.ui.Label get_f_Label22() {
+      return build_f_Label22();
+    }
+    private com.google.gwt.user.client.ui.Label build_f_Label22() {
+      // Creation section.
+      final com.google.gwt.user.client.ui.Label f_Label22 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
+      // Setup section.
+      f_Label22.setText("Entre le prix de votre article");
+
+      return f_Label22;
+    }
+
+    /**
+     * Getter for f_FlowPanel23 called 1 times. Type: DEFAULT. Build precedence: 3.
+     */
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel23() {
+      return build_f_FlowPanel23();
+    }
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel23() {
+      // Creation section.
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel23 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      // Setup section.
+      f_FlowPanel23.add(get_valC());
+
+      return f_FlowPanel23;
     }
 
     /**
@@ -671,22 +702,24 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Setup section.
       valC.setText("Entrer une valeur");
 
+      this.owner.valC = valC;
+
       return valC;
     }
 
     /**
-     * Getter for f_FlowPanel22 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel24 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel22() {
-      return build_f_FlowPanel22();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel24() {
+      return build_f_FlowPanel24();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel22() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel24() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel22 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel24 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel22.add(get_errorLabelRToC());
+      f_FlowPanel24.add(get_errorLabelRToC());
 
-      return f_FlowPanel22;
+      return f_FlowPanel24;
     }
 
     /**
@@ -700,22 +733,24 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.Label errorLabelRToC = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
       // Setup section.
 
+      this.owner.errorLabelRToC = errorLabelRToC;
+
       return errorLabelRToC;
     }
 
     /**
-     * Getter for f_FlowPanel23 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel25 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel23() {
-      return build_f_FlowPanel23();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel25() {
+      return build_f_FlowPanel25();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel23() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel25() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel23 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel25 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel23.add(get_boutonClearC());
+      f_FlowPanel25.add(get_boutonClearC());
 
-      return f_FlowPanel23;
+      return f_FlowPanel25;
     }
 
     /**
@@ -729,6 +764,8 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.ResetButton boutonClearC = (com.google.gwt.user.client.ui.ResetButton) GWT.create(com.google.gwt.user.client.ui.ResetButton.class);
       // Setup section.
       boutonClearC.setText("Clear");
+
+      this.owner.boutonClearC = boutonClearC;
 
       return boutonClearC;
     }
@@ -764,51 +801,21 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
     }
 
     /**
-     * Getter for f_FlowPanel24 called 1 times. Type: DEFAULT. Build precedence: 2.
+     * Getter for f_FlowPanel26 called 1 times. Type: DEFAULT. Build precedence: 2.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel24() {
-      return build_f_FlowPanel24();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel26() {
+      return build_f_FlowPanel26();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel24() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel26() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel24 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel26 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel24.add(get_f_FlowPanel25());
-      f_FlowPanel24.add(get_f_FlowPanel27());
-      f_FlowPanel24.add(get_f_FlowPanel28());
-      f_FlowPanel24.add(get_f_FlowPanel29());
+      f_FlowPanel26.add(get_f_FlowPanel27());
+      f_FlowPanel26.add(get_f_FlowPanel29());
+      f_FlowPanel26.add(get_f_FlowPanel30());
+      f_FlowPanel26.add(get_f_FlowPanel31());
 
-      return f_FlowPanel24;
-    }
-
-    /**
-     * Getter for f_FlowPanel25 called 1 times. Type: DEFAULT. Build precedence: 3.
-     */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel25() {
-      return build_f_FlowPanel25();
-    }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel25() {
-      // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel25 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
-      // Setup section.
-      f_FlowPanel25.add(get_f_Label26());
-
-      return f_FlowPanel25;
-    }
-
-    /**
-     * Getter for f_Label26 called 1 times. Type: DEFAULT. Build precedence: 4.
-     */
-    private com.google.gwt.user.client.ui.Label get_f_Label26() {
-      return build_f_Label26();
-    }
-    private com.google.gwt.user.client.ui.Label build_f_Label26() {
-      // Creation section.
-      final com.google.gwt.user.client.ui.Label f_Label26 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
-      // Setup section.
-      f_Label26.setText("Entre la remise sur celui-ci");
-
-      return f_Label26;
+      return f_FlowPanel26;
     }
 
     /**
@@ -821,9 +828,39 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel27 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel27.add(get_valD());
+      f_FlowPanel27.add(get_f_Label28());
 
       return f_FlowPanel27;
+    }
+
+    /**
+     * Getter for f_Label28 called 1 times. Type: DEFAULT. Build precedence: 4.
+     */
+    private com.google.gwt.user.client.ui.Label get_f_Label28() {
+      return build_f_Label28();
+    }
+    private com.google.gwt.user.client.ui.Label build_f_Label28() {
+      // Creation section.
+      final com.google.gwt.user.client.ui.Label f_Label28 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
+      // Setup section.
+      f_Label28.setText("Entre la remise sur celui-ci");
+
+      return f_Label28;
+    }
+
+    /**
+     * Getter for f_FlowPanel29 called 1 times. Type: DEFAULT. Build precedence: 3.
+     */
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel29() {
+      return build_f_FlowPanel29();
+    }
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel29() {
+      // Creation section.
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel29 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      // Setup section.
+      f_FlowPanel29.add(get_valD());
+
+      return f_FlowPanel29;
     }
 
     /**
@@ -838,22 +875,24 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Setup section.
       valD.setText("Entrer une valeur");
 
+      this.owner.valD = valD;
+
       return valD;
     }
 
     /**
-     * Getter for f_FlowPanel28 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel30 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel28() {
-      return build_f_FlowPanel28();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel30() {
+      return build_f_FlowPanel30();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel28() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel30() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel28 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel30 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel28.add(get_errorLabelRToD());
+      f_FlowPanel30.add(get_errorLabelRToD());
 
-      return f_FlowPanel28;
+      return f_FlowPanel30;
     }
 
     /**
@@ -867,23 +906,25 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.Label errorLabelRToD = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
       // Setup section.
 
+      this.owner.errorLabelRToD = errorLabelRToD;
+
       return errorLabelRToD;
     }
 
     /**
-     * Getter for f_FlowPanel29 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel31 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel29() {
-      return build_f_FlowPanel29();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel31() {
+      return build_f_FlowPanel31();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel29() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel31() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel29 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel31 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel29.add(get_boutonClearD());
-      f_FlowPanel29.add(get_boutonConvertRToC());
+      f_FlowPanel31.add(get_boutonClearD());
+      f_FlowPanel31.add(get_boutonConvertRToC());
 
-      return f_FlowPanel29;
+      return f_FlowPanel31;
     }
 
     /**
@@ -897,6 +938,8 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.ResetButton boutonClearD = (com.google.gwt.user.client.ui.ResetButton) GWT.create(com.google.gwt.user.client.ui.ResetButton.class);
       // Setup section.
       boutonClearD.setText("Clear");
+
+      this.owner.boutonClearD = boutonClearD;
 
       return boutonClearD;
     }
@@ -912,6 +955,8 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.SubmitButton boutonConvertRToC = (com.google.gwt.user.client.ui.SubmitButton) GWT.create(com.google.gwt.user.client.ui.SubmitButton.class);
       // Setup section.
       boutonConvertRToC.setText("Convertir");
+
+      this.owner.boutonConvertRToC = boutonConvertRToC;
 
       return boutonConvertRToC;
     }
@@ -947,52 +992,23 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
     }
 
     /**
-     * Getter for f_FlowPanel30 called 1 times. Type: DEFAULT. Build precedence: 2.
+     * Getter for f_FlowPanel32 called 1 times. Type: DEFAULT. Build precedence: 2.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel30() {
-      return build_f_FlowPanel30();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel32() {
+      return build_f_FlowPanel32();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel30() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel32() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel30 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel32 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel30.add(get_f_FlowPanel31());
-      f_FlowPanel30.add(get_f_FlowPanel33());
-      f_FlowPanel30.add(get_f_FlowPanel35());
-      f_FlowPanel30.add(get_f_FlowPanel36());
-      f_FlowPanel30.add(get_f_FlowPanel37());
+      f_FlowPanel32.add(get_f_FlowPanel33());
+      f_FlowPanel32.add(get_f_FlowPanel35());
+      f_FlowPanel32.add(get_f_FlowPanel37());
+      f_FlowPanel32.add(get_f_FlowPanel39());
+      f_FlowPanel32.add(get_f_FlowPanel40());
+      f_FlowPanel32.add(get_f_FlowPanel41());
 
-      return f_FlowPanel30;
-    }
-
-    /**
-     * Getter for f_FlowPanel31 called 1 times. Type: DEFAULT. Build precedence: 3.
-     */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel31() {
-      return build_f_FlowPanel31();
-    }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel31() {
-      // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel31 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
-      // Setup section.
-      f_FlowPanel31.add(get_f_Label32());
-
-      return f_FlowPanel31;
-    }
-
-    /**
-     * Getter for f_Label32 called 1 times. Type: DEFAULT. Build precedence: 4.
-     */
-    private com.google.gwt.user.client.ui.Label get_f_Label32() {
-      return build_f_Label32();
-    }
-    private com.google.gwt.user.client.ui.Label build_f_Label32() {
-      // Creation section.
-      final com.google.gwt.user.client.ui.Label f_Label32 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
-      // Setup section.
-      f_Label32.setText("DIVISER 2 NOMBRES");
-
-      return f_Label32;
+      return f_FlowPanel32;
     }
 
     /**
@@ -1020,7 +1036,7 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.Label f_Label34 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
       // Setup section.
-      f_Label34.setText("Entre votre entier");
+      f_Label34.setText("-----------------------------------------------------------------");
 
       return f_Label34;
     }
@@ -1035,9 +1051,69 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel35 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel35.add(get_valE());
+      f_FlowPanel35.add(get_f_Label36());
 
       return f_FlowPanel35;
+    }
+
+    /**
+     * Getter for f_Label36 called 1 times. Type: DEFAULT. Build precedence: 4.
+     */
+    private com.google.gwt.user.client.ui.Label get_f_Label36() {
+      return build_f_Label36();
+    }
+    private com.google.gwt.user.client.ui.Label build_f_Label36() {
+      // Creation section.
+      final com.google.gwt.user.client.ui.Label f_Label36 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
+      // Setup section.
+      f_Label36.setText("DIVISER 2 NOMBRES");
+
+      return f_Label36;
+    }
+
+    /**
+     * Getter for f_FlowPanel37 called 1 times. Type: DEFAULT. Build precedence: 3.
+     */
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel37() {
+      return build_f_FlowPanel37();
+    }
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel37() {
+      // Creation section.
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel37 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      // Setup section.
+      f_FlowPanel37.add(get_f_Label38());
+
+      return f_FlowPanel37;
+    }
+
+    /**
+     * Getter for f_Label38 called 1 times. Type: DEFAULT. Build precedence: 4.
+     */
+    private com.google.gwt.user.client.ui.Label get_f_Label38() {
+      return build_f_Label38();
+    }
+    private com.google.gwt.user.client.ui.Label build_f_Label38() {
+      // Creation section.
+      final com.google.gwt.user.client.ui.Label f_Label38 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
+      // Setup section.
+      f_Label38.setText("Entre votre entier");
+
+      return f_Label38;
+    }
+
+    /**
+     * Getter for f_FlowPanel39 called 1 times. Type: DEFAULT. Build precedence: 3.
+     */
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel39() {
+      return build_f_FlowPanel39();
+    }
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel39() {
+      // Creation section.
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel39 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      // Setup section.
+      f_FlowPanel39.add(get_valE());
+
+      return f_FlowPanel39;
     }
 
     /**
@@ -1052,22 +1128,24 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Setup section.
       valE.setText("Entrer une valeur");
 
+      this.owner.valE = valE;
+
       return valE;
     }
 
     /**
-     * Getter for f_FlowPanel36 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel40 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel36() {
-      return build_f_FlowPanel36();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel40() {
+      return build_f_FlowPanel40();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel36() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel40() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel36 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel40 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel36.add(get_errorLabelRToE());
+      f_FlowPanel40.add(get_errorLabelRToE());
 
-      return f_FlowPanel36;
+      return f_FlowPanel40;
     }
 
     /**
@@ -1081,22 +1159,24 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.Label errorLabelRToE = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
       // Setup section.
 
+      this.owner.errorLabelRToE = errorLabelRToE;
+
       return errorLabelRToE;
     }
 
     /**
-     * Getter for f_FlowPanel37 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel41 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel37() {
-      return build_f_FlowPanel37();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel41() {
+      return build_f_FlowPanel41();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel37() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel41() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel37 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel41 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel37.add(get_boutonClearE());
+      f_FlowPanel41.add(get_boutonClearE());
 
-      return f_FlowPanel37;
+      return f_FlowPanel41;
     }
 
     /**
@@ -1110,6 +1190,8 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.ResetButton boutonClearE = (com.google.gwt.user.client.ui.ResetButton) GWT.create(com.google.gwt.user.client.ui.ResetButton.class);
       // Setup section.
       boutonClearE.setText("Clear");
+
+      this.owner.boutonClearE = boutonClearE;
 
       return boutonClearE;
     }
@@ -1145,66 +1227,66 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
     }
 
     /**
-     * Getter for f_FlowPanel38 called 1 times. Type: DEFAULT. Build precedence: 2.
+     * Getter for f_FlowPanel42 called 1 times. Type: DEFAULT. Build precedence: 2.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel38() {
-      return build_f_FlowPanel38();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel42() {
+      return build_f_FlowPanel42();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel38() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel42() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel38 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel42 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel38.add(get_f_FlowPanel39());
-      f_FlowPanel38.add(get_f_FlowPanel41());
-      f_FlowPanel38.add(get_f_FlowPanel42());
-      f_FlowPanel38.add(get_f_FlowPanel43());
+      f_FlowPanel42.add(get_f_FlowPanel43());
+      f_FlowPanel42.add(get_f_FlowPanel45());
+      f_FlowPanel42.add(get_f_FlowPanel46());
+      f_FlowPanel42.add(get_f_FlowPanel47());
 
-      return f_FlowPanel38;
+      return f_FlowPanel42;
     }
 
     /**
-     * Getter for f_FlowPanel39 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel43 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel39() {
-      return build_f_FlowPanel39();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel43() {
+      return build_f_FlowPanel43();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel39() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel43() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel39 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel43 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel39.add(get_f_Label40());
+      f_FlowPanel43.add(get_f_Label44());
 
-      return f_FlowPanel39;
+      return f_FlowPanel43;
     }
 
     /**
-     * Getter for f_Label40 called 1 times. Type: DEFAULT. Build precedence: 4.
+     * Getter for f_Label44 called 1 times. Type: DEFAULT. Build precedence: 4.
      */
-    private com.google.gwt.user.client.ui.Label get_f_Label40() {
-      return build_f_Label40();
+    private com.google.gwt.user.client.ui.Label get_f_Label44() {
+      return build_f_Label44();
     }
-    private com.google.gwt.user.client.ui.Label build_f_Label40() {
+    private com.google.gwt.user.client.ui.Label build_f_Label44() {
       // Creation section.
-      final com.google.gwt.user.client.ui.Label f_Label40 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
+      final com.google.gwt.user.client.ui.Label f_Label44 = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
       // Setup section.
-      f_Label40.setText("Entre votre entier");
+      f_Label44.setText("Entre votre entier");
 
-      return f_Label40;
+      return f_Label44;
     }
 
     /**
-     * Getter for f_FlowPanel41 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel45 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel41() {
-      return build_f_FlowPanel41();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel45() {
+      return build_f_FlowPanel45();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel41() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel45() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel41 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel45 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel41.add(get_valF());
+      f_FlowPanel45.add(get_valF());
 
-      return f_FlowPanel41;
+      return f_FlowPanel45;
     }
 
     /**
@@ -1219,22 +1301,24 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Setup section.
       valF.setText("Entrer une valeur");
 
+      this.owner.valF = valF;
+
       return valF;
     }
 
     /**
-     * Getter for f_FlowPanel42 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel46 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel42() {
-      return build_f_FlowPanel42();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel46() {
+      return build_f_FlowPanel46();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel42() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel46() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel42 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel46 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel42.add(get_errorLabelRToF());
+      f_FlowPanel46.add(get_errorLabelRToF());
 
-      return f_FlowPanel42;
+      return f_FlowPanel46;
     }
 
     /**
@@ -1248,23 +1332,25 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.Label errorLabelRToF = (com.google.gwt.user.client.ui.Label) GWT.create(com.google.gwt.user.client.ui.Label.class);
       // Setup section.
 
+      this.owner.errorLabelRToF = errorLabelRToF;
+
       return errorLabelRToF;
     }
 
     /**
-     * Getter for f_FlowPanel43 called 1 times. Type: DEFAULT. Build precedence: 3.
+     * Getter for f_FlowPanel47 called 1 times. Type: DEFAULT. Build precedence: 3.
      */
-    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel43() {
-      return build_f_FlowPanel43();
+    private com.google.gwt.user.client.ui.FlowPanel get_f_FlowPanel47() {
+      return build_f_FlowPanel47();
     }
-    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel43() {
+    private com.google.gwt.user.client.ui.FlowPanel build_f_FlowPanel47() {
       // Creation section.
-      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel43 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
+      final com.google.gwt.user.client.ui.FlowPanel f_FlowPanel47 = (com.google.gwt.user.client.ui.FlowPanel) GWT.create(com.google.gwt.user.client.ui.FlowPanel.class);
       // Setup section.
-      f_FlowPanel43.add(get_boutonClearF());
-      f_FlowPanel43.add(get_boutonConvertRToE());
+      f_FlowPanel47.add(get_boutonClearF());
+      f_FlowPanel47.add(get_boutonConvertRToE());
 
-      return f_FlowPanel43;
+      return f_FlowPanel47;
     }
 
     /**
@@ -1278,6 +1364,8 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.ResetButton boutonClearF = (com.google.gwt.user.client.ui.ResetButton) GWT.create(com.google.gwt.user.client.ui.ResetButton.class);
       // Setup section.
       boutonClearF.setText("Clear");
+
+      this.owner.boutonClearF = boutonClearF;
 
       return boutonClearF;
     }
@@ -1293,6 +1381,8 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       final com.google.gwt.user.client.ui.SubmitButton boutonConvertRToE = (com.google.gwt.user.client.ui.SubmitButton) GWT.create(com.google.gwt.user.client.ui.SubmitButton.class);
       // Setup section.
       boutonConvertRToE.setText("Convertir");
+
+      this.owner.boutonConvertRToE = boutonConvertRToE;
 
       return boutonConvertRToE;
     }

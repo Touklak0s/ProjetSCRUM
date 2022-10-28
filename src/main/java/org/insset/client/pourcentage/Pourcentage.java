@@ -39,6 +39,36 @@ public class Pourcentage extends Composite {
     @UiField
     public Label errorLabelRToB;
     
+    @UiField
+    public ResetButton boutonClearC;
+    @UiField
+    public SubmitButton boutonConvertRToC;
+    @UiField
+    public TextBox valC;
+    @UiField
+    public Label errorLabelRToC;
+    @UiField
+    public ResetButton boutonClearD;
+    @UiField
+    public TextBox valD;
+    @UiField
+    public Label errorLabelRToD;
+    
+    @UiField
+    public ResetButton boutonClearE;
+    @UiField
+    public SubmitButton boutonConvertRToE;
+    @UiField
+    public TextBox valE;
+    @UiField
+    public Label errorLabelRToE;
+    @UiField
+    public ResetButton boutonClearF;
+    @UiField
+    public TextBox valF;
+    @UiField
+    public Label errorLabelRToF;
+    
     interface AddUiBinder extends UiBinder<HTMLPanel, Pourcentage> {
     }
     
@@ -75,7 +105,7 @@ public class Pourcentage extends Composite {
         boutonConvertRToA.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-               calculPourcentage();
+               calculPourcentageGAIN();
             }
 
         });
@@ -86,29 +116,124 @@ public class Pourcentage extends Composite {
                 errorLabelRToB.setText("");
             }
         });
+        boutonClearC.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                valC.setText("");
+                errorLabelRToC.setText("");
+            }
+        });
+        boutonConvertRToC.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+               calculPourcentageINITIAL();
+            }
+
+        });
+        boutonClearD.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                valD.setText("");
+                errorLabelRToD.setText("");
+            }
+        });
+        boutonClearE.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                valE.setText("");
+                errorLabelRToE.setText("");
+            }
+        });
+        boutonConvertRToE.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+               calculDiviseur();
+            }
+
+        });
+        boutonClearF.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                valF.setText("");
+                errorLabelRToF.setText("");
+            }
+        });
     }
     
     /**
      * call server
      */
-    private void calculPourcentage() {
+    private void calculPourcentageGAIN() {
         if (!FieldVerifier.isValidInt(Integer.parseInt(valA.getText()))) {
             errorLabelRToA.addStyleName("serverResponseLabelError");
             errorLabelRToA.setText("Format incorect");
             return;
         }
-        service.calculPourcentageGAIN(valA.getText(),valB.getText(), new AsyncCallback<Integer>() {            
+        String[] tabVal = new String[] {valA.getText(), valB.getText()};
+        service.calculPourcentageGAIN(tabVal, new AsyncCallback<String>() {            
             @Override
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
 //                Window.alert(SERVER_ERROR);
                 errorLabelRToA.setText("Failure    !!!!");
-                new DialogBoxInssetPresenter("Pourcentage", valA.getText(), String.valueOf(caught));
+                new DialogBoxInssetPresenter("Erreur", valA.getText()+" "+valB.getText(), String.valueOf(caught));
             }
             
-            public void onSuccess(Integer result) {
+            public void onSuccess(String result) {
                 errorLabelRToA.setText(String.valueOf(result));
-                new DialogBoxInssetPresenter("Pourcentage", valA.getText(), String.valueOf(result));
+                new DialogBoxInssetPresenter("Pourcentage", valA.getText()+" "+valB.getText(), String.valueOf(result));
+            }
+        });
+    }
+    
+    /**
+     * call server
+     */
+    private void calculPourcentageINITIAL() {
+        if (!FieldVerifier.isValidInt(Integer.parseInt(valA.getText()))) {
+            errorLabelRToC.addStyleName("serverResponseLabelError");
+            errorLabelRToC.setText("Format incorect");
+            return;
+        }
+        String[] tabVal = new String[] {valC.getText(), valD.getText()};
+        service.calculPourcentageGAIN(tabVal, new AsyncCallback<String>() {            
+            @Override
+            public void onFailure(Throwable caught) {
+                // Show the RPC error message to the user
+//                Window.alert(SERVER_ERROR);
+                errorLabelRToC.setText("Failure    !!!!");
+                new DialogBoxInssetPresenter("Erreur", valC.getText()+" "+valD.getText(), String.valueOf(caught));
+            }
+            
+            public void onSuccess(String result) {
+                errorLabelRToC.setText(String.valueOf(result));
+                new DialogBoxInssetPresenter("Pourcentage", valC.getText()+" "+valD.getText(), String.valueOf(result));
+            }
+        });
+    }
+    
+    /**
+     * call server
+     */
+    private void calculDiviseur() {
+        if (!FieldVerifier.isValidInt(Integer.parseInt(valA.getText()))) {
+            errorLabelRToE.addStyleName("serverResponseLabelError");
+            errorLabelRToE.setText("Format incorect");
+            return;
+        }
+        String[] tabVal = new String[] {valE.getText(), valF.getText()};
+        service.calculPourcentageGAIN(tabVal, new AsyncCallback<String>() {            
+            @Override
+            public void onFailure(Throwable caught) {
+                // Show the RPC error message to the user
+//                Window.alert(SERVER_ERROR);
+                errorLabelRToE.setText("Failure    !!!!");
+                new DialogBoxInssetPresenter("Erreur", valE.getText()+" "+valF.getText(), String.valueOf(caught));
+            }
+            
+            public void onSuccess(String result) {
+                errorLabelRToE.setText(String.valueOf(result));
+                new DialogBoxInssetPresenter("Pourcentage", valE.getText()+" "+valF.getText(), String.valueOf(result));
             }
         });
     }

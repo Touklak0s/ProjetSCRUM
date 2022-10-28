@@ -45,6 +45,9 @@
     <div class="bs-section">
         <g:FlowPanel>
             <g:FlowPanel>
+                <g:Label>-----------------------------------------------------------------</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>
                 <g:Label>CALCUL DU POURCENTAGE INVERSE</g:Label>
             </g:FlowPanel>
             <g:FlowPanel>
@@ -81,6 +84,9 @@
     
     <div class="bs-section">
         <g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>-----------------------------------------------------------------</g:Label>
+            </g:FlowPanel>
             <g:FlowPanel>
                 <g:Label>DIVISER 2 NOMBRES</g:Label>
             </g:FlowPanel>

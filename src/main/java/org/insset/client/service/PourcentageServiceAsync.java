@@ -11,9 +11,12 @@ public interface PourcentageServiceAsync {
 /**
  * AsyncCallback pour Convertion Chiffre romain en chiffre arabe
  *
-     * @param nbr1
-     * @param nbr2
+ * @param tabVal
  * @throws IllegalArgumentException
  */
-  void calculPourcentageGAIN(String nbr1, String nbr2, AsyncCallback<Integer> callback);
+  void calculPourcentageGAIN(String[] tabVal, AsyncCallback<String> callback);
+    
+  void calculPourcentageINITIAL(String[] tabVal, AsyncCallback<String> callback);
+
+  void calculDiviseur(String[] tabVal, AsyncCallback<String> callback);
 }
