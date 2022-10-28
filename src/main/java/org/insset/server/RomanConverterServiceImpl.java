@@ -32,7 +32,7 @@ public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         
         RomanConverterServiceImpl instance = new RomanConverterServiceImpl();
         for (int i = 0; i < NotreChiffre.length(); i++){
-            if ("/".equals(String.valueOf(NotreChiffre.charAt(i)))){
+            if ("/".equals(String.valueOf(NotreChiffre.charAt(i))) || "-".equals(String.valueOf(NotreChiffre.charAt(i))) || ".".equals(String.valueOf(NotreChiffre.charAt(i)))){
                 resultat = resultat + instance.convertArabeToRoman(Integer.parseInt(other));
                 resultat = resultat + "/";
                 other = "";
