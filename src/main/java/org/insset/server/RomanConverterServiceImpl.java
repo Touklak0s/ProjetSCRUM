@@ -16,8 +16,8 @@ import org.insset.client.service.RomanConverterService;
 public class RomanConverterServiceImpl extends RemoteServiceServlet implements
         RomanConverterService {
 
-    public static final String[] Romains= {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
-    public static final Integer[] Arabes= {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+    protected static final String[] Romains= {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+    protected static final Integer[] Arabes= {1000,900,500,400,100,90,50,40,10,9,5,4,1};
 
     /**
      * Méthode de conversion d'une date en chiffre Arabe a convertir en Romain
