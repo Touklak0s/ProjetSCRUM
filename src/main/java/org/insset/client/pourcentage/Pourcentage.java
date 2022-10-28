@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.insset.client.pourcentage;
 
 import com.google.gwt.core.client.GWT;
@@ -12,12 +7,12 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ResetButton;
 import com.google.gwt.user.client.ui.SubmitButton;
 import com.google.gwt.user.client.ui.TextBox;
-import org.insset.client.message.Messages;
 import org.insset.client.message.dialogbox.DialogBoxInssetPresenter;
 import org.insset.client.service.PourcentageService;
 import org.insset.client.service.PourcentageServiceAsync;
@@ -27,87 +22,93 @@ import org.insset.shared.FieldVerifier;
  *
  * @author insset
  */
-public class Pourcentage {
+public class Pourcentage extends Composite {
     
     @UiField
-    public ResetButton boutonClear;
+    public ResetButton boutonClearA;
     @UiField
-    public SubmitButton boutonEnregistrer;
+    public SubmitButton boutonConvertRToA;
     @UiField
-    public TextBox nom;
+    public TextBox valA;
     @UiField
-    public Label errorLabel;
+    public Label errorLabelRToA;
+    @UiField
+    public ResetButton boutonClearB;
+    @UiField
+    public TextBox valB;
+    @UiField
+    public Label errorLabelRToB;
+    
+    interface AddUiBinder extends UiBinder<HTMLPanel, Pourcentage> {
+    }
     
     /**
-     * The message displayed to the user when the server cannot be reached or
-     * returns an error.
+     * Create UiBinder for the view
      */
-    private static final String SERVER_ERROR = "An error occurred while "
-            + "attempting to contact the server. Please check your network "
-            + "connection and try again.";
-
+    private static AddUiBinder ourUiBinder = GWT.create(AddUiBinder.class);
+    
     /**
      * Create a remote service proxy to talk to the server-side Greeting
      * service.
      */
-    private final PourcentageServiceAsync service = GWT.create(Pourcentage.class);
-
-    private final Messages messages = GWT.create(Messages.class);
-
-    private void initWidget(HTMLPanel createAndBindUi) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    interface MainUiBinder extends UiBinder<HTMLPanel, Pourcentage> {
-    }
-
-    private static MainUiBinder ourUiBinder = GWT.create(MainUiBinder.class);
+    private final PourcentageServiceAsync service = GWT.create(PourcentageService.class);
 
     /**
      * Constructeur
      */
     public Pourcentage() {
-        //bind de la page
         initWidget(ourUiBinder.createAndBindUi(this));
         initHandler();
     }
-    
+
     /**
-     * Methode qui innitialise les handler pour les cliques sur les boutons
+     * Init des handler
      */
-    protected void initHandler() {
-        boutonClear.addClickHandler(new ClickHandler() {
+    private void initHandler() {
+        boutonClearA.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                nom.setText("");
-                errorLabel.setText("");
+                valA.setText("");
+                errorLabelRToA.setText("");
             }
         });
-        boutonEnregistrer.addClickHandler(new ClickHandler() {
+        boutonConvertRToA.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                contacterService();
+               calculPourcentage();
             }
 
+        });
+        boutonClearB.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                valB.setText("");
+                errorLabelRToB.setText("");
+            }
         });
     }
     
-    private void contacterService() {
-        errorLabel.setText("");
-        final String textToServer = nom.getText();
-        if (!FieldVerifier.isValidName(textToServer)) {
-            errorLabel.addStyleName("serverResponseLabelError");
-            errorLabel.setText("Aucun texte entré!!");
+    /**
+     * call server
+     */
+    private void calculPourcentage() {
+        if (!FieldVerifier.isValidInt(Integer.parseInt(valA.getText()))) {
+            errorLabelRToA.addStyleName("serverResponseLabelError");
+            errorLabelRToA.setText("Format incorect");
             return;
         }
-        service.calculPourcentage(textToServer, new AsyncCallback<String>() {
+        service.calculPourcentageGAIN(valA.getText(),valB.getText(), new AsyncCallback<Integer>() {            
+            @Override
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
-                Window.alert(SERVER_ERROR);
+//                Window.alert(SERVER_ERROR);
+                errorLabelRToA.setText("Failure    !!!!");
+                new DialogBoxInssetPresenter("Pourcentage", valA.getText(), String.valueOf(caught));
             }
-
-            public void onSuccess(String result) {
-                new DialogBoxInssetPresenter("Vous gagnez X€ sur votre Article :", textToServer, result);
+            
+            public void onSuccess(Integer result) {
+                errorLabelRToA.setText(String.valueOf(result));
+                new DialogBoxInssetPresenter("Pourcentage", valA.getText(), String.valueOf(result));
             }
         });
     }

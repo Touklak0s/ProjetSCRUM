@@ -17,11 +17,6 @@ import org.insset.client.service.RomanConverterService;
 import org.insset.client.service.RomanConverterServiceAsync;
 import org.insset.shared.FieldVerifier;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
  * @author talend
@@ -57,6 +52,7 @@ public class CalculatorRomainPresenter extends Composite {
     }
 
     private static MainUiBinder ourUiBinder = GWT.create(MainUiBinder.class);
+    
     /**
      * Create a remote service proxy to talk to the server-side Greeting
      * service.

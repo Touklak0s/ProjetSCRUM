@@ -2,28 +2,120 @@
          xmlns:g='urn:import:com.google.gwt.user.client.ui'
         xmlns:menu="urn:import:org.insset.client.menu">
 
-  <g:HTMLPanel>
+<g:HTMLPanel>
     <menu:Menu ui:field="menu"/>
     <h1>Projet de mise en pratique Scrum</h1>       
     <div class="bs-section">
-
         <g:FlowPanel>
-          <g:FormPanel/>
-          
             <g:FlowPanel>
-                <g:Label>Quelle est le prix de votre article ?</g:Label>
+                <g:Label>CALCUL DU POURCENTAGE</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>Entre le prix de votre article</g:Label>
             </g:FlowPanel>
             <g:FlowPanel>          
-              <g:TextBox ui:field="nom" text="Entrer le prix"/>
+              <g:TextBox ui:field="valA" text="Entrer une valeur"/>
             </g:FlowPanel>
             <g:FlowPanel>
-                <g:Label ui:field="errorLabel" ></g:Label>
+                <g:Label ui:field="errorLabelRToA" ></g:Label>
             </g:FlowPanel>
-            <g:FlowPanel ui:field="formActions" >
-                <g:SubmitButton ui:field="boutonEnregistrer" text="Envoyer"/>
-                <g:ResetButton ui:field="boutonClear" text="Clear"/>
+            <g:FlowPanel >
+                
+                <g:ResetButton ui:field="boutonClearA" text="Clear"/>
+            </g:FlowPanel>
+        </g:FlowPanel>
+        <g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>Entre la remise sur celui-ci</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>          
+              <g:TextBox ui:field="valB" text="Entrer une valeur"/>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label ui:field="errorLabelRToB" ></g:Label>
+                <g:SubmitButton ui:field="boutonConvertRToA" text="TEST POURCENTAGE"/>
+            </g:FlowPanel>
+            <g:FlowPanel >
+                
+                <g:ResetButton ui:field="boutonClearB" text="Clear"/>
             </g:FlowPanel>
         </g:FlowPanel>
     </div>
+    
+    <div class="bs-section">
+        <g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>CALCUL DU POURCENTAGE INVERSE</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>Entre le prix de votre article</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>          
+              <g:TextBox ui:field="valC" text="Entrer une valeur"/>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label ui:field="errorLabelRToC" ></g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel >
+                
+                <g:ResetButton ui:field="boutonClearC" text="Clear"/>
+            </g:FlowPanel>
+        </g:FlowPanel>
+        <g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>Entre la remise sur celui-ci</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>          
+              <g:TextBox ui:field="valD" text="Entrer une valeur"/>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label ui:field="errorLabelRToD" ></g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel >
+                
+                <g:ResetButton ui:field="boutonClearD" text="Clear"/>
+                <g:SubmitButton ui:field="boutonConvertRToC" text="Convertir"/>
+            </g:FlowPanel>
+        </g:FlowPanel>
+    </div>
+    
+    <div class="bs-section">
+        <g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>DIVISER 2 NOMBRES</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>Entre votre entier</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>          
+              <g:TextBox ui:field="valE" text="Entrer une valeur"/>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label ui:field="errorLabelRToE" ></g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel >
+                
+                <g:ResetButton ui:field="boutonClearE" text="Clear"/>
+            </g:FlowPanel>
+        </g:FlowPanel>
+        <g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label>Entre votre entier</g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel>          
+              <g:TextBox ui:field="valF" text="Entrer une valeur"/>
+            </g:FlowPanel>
+            <g:FlowPanel>
+                <g:Label ui:field="errorLabelRToF" ></g:Label>
+            </g:FlowPanel>
+            <g:FlowPanel >
+                
+                <g:ResetButton ui:field="boutonClearF" text="Clear"/>
+                <g:SubmitButton ui:field="boutonConvertRToE" text="Convertir"/>
+            </g:FlowPanel>
+        </g:FlowPanel>
+    </div>
+    <!-- E. Container Right -->
+
   </g:HTMLPanel>
 </ui:UiBinder>

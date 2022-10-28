@@ -7,7 +7,6 @@ package org.insset.client;
 
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.RootPanel;
 import org.insset.client.exemple.ExemplePresenter;
 import org.insset.client.calculator.roman.CalculatorRomainPresenter;
@@ -37,7 +36,7 @@ public class HistoryListener implements ValueChangeHandler<String> {
         //Accès a la page pourcentage
         if (event.getValue().equals("pourcentage")) {
             RootPanel.get().clear();
-            RootPanel.get().add((IsWidget) new Pourcentage());
+            RootPanel.get().add(new Pourcentage());
         }
     }
 

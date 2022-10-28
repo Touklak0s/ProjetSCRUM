@@ -17,7 +17,6 @@ public interface RomanConverterServiceAsync {
      * AsyncCallback pour Convertion Chiffre romain en chiffre arabe
      *
      * @param nbr
-     * @return
      * @throws IllegalArgumentException
      */
     void convertRomanToArabe(String nbr, AsyncCallback<Integer> callback);

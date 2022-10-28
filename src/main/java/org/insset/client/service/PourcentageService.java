@@ -8,6 +8,14 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
  */
 @RemoteServiceRelativePath("pourcentage")
 public interface PourcentageService extends RemoteService {
-
-    String calculPourcentage(String name) throws IllegalArgumentException;
+        
+    /**
+     * Calcul pourcentage
+     *
+     * @param nbr1
+     * @param nbr2
+     * @return
+     * @throws IllegalArgumentException
+     */
+    Integer calculPourcentageGAIN(String nbr1, String nbr2) throws IllegalArgumentException;
 }

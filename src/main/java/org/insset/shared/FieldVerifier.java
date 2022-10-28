@@ -1,5 +1,7 @@
 package org.insset.shared;
 
+import static java.lang.Math.ceil;
+
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -64,5 +66,13 @@ public class FieldVerifier {
     public static boolean isValidDate(String date) {
         //Implement your code
         return true;
+    }
+    
+     public static boolean isValidInt(Integer nbr) {
+        if(ceil(nbr) == nbr)
+        {
+            return true;
+        }
+        return false;
     }
 }
