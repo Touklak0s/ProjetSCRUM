@@ -123,9 +123,13 @@ public class CalculatorRomainPresenter extends Composite {
      * call server
      */
     private void convertRomanToArabe() {
+        /**
+         * On test les diffèrents cas d'échec
+         * 1 - Pas un nombre Romain 
+         */
         if (!FieldVerifier.isValidRoman(valR.getText())) {
             errorLabelRToA.addStyleName("serverResponseLabelError");
-            errorLabelRToA.setText("Format incorect");
+            errorLabelRToA.setText("Pas un chiffre Romain");
             return;
         }
         service.convertRomanToArabe(valR.getText(), new AsyncCallback<Integer>() {
@@ -146,16 +150,31 @@ public class CalculatorRomainPresenter extends Composite {
      */
     private void convertArabeToRoman() {
         Integer value = null;
+        /**
+         * On test les diffèrents cas d'échec
+         * 1 - Pas un nombre
+         */
         try {
             value = Integer.parseInt(valA.getText());
         } catch (NumberFormatException e) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Format faux !");
             return;
-        }
+        }    
+        /**
+        * 2 - Pas un entier
+        */
         if (!FieldVerifier.isValidDecimal(value)) {
             errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelAToR.setText("Pas un entier !");
+            return;
+        }
+        /**
+         * 3 - Supérieur à 3999
+         */
+        if ( value > 3999 ) {
+            errorLabelAToR.addStyleName("serverResponseLabelError");
+            errorLabelAToR.setText("Le nombre ne doit pas dépasser 3999 !");
             return;
         }
         service.convertArabeToRoman(Integer.parseInt(valA.getText()), new AsyncCallback<String>() {
@@ -174,10 +193,13 @@ public class CalculatorRomainPresenter extends Composite {
      * call server
      */
     private void convertDate() {
-        //Verif
+        /**
+         * On test les diffèrents cas d'échec
+         * 1 - Pas un format de date valide
+         */
         if (!FieldVerifier.isValidDate(valD.getText())) {
-            errorLabelAToR.addStyleName("serverResponseLabelError");
-            errorLabelAToR.setText("Format incorect");
+            errorLabelD.addStyleName("serverResponseLabelError");
+            errorLabelD.setText("Format de date faux !");
             return;
         }
         //call server

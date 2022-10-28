@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>RomanConverterServiceImpl.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjetSCRUM</a> &gt; <a href="index.source.html" class="el_package">org.insset.server</a> &gt; <span class="el_source">RomanConverterServiceImpl.java</span></div><h1>RomanConverterServiceImpl.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package org.insset.server;
+
+import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import org.insset.client.service.RomanConverterService;
+
+/**
+ *
+ * @author user
+ */
+@SuppressWarnings(&quot;serial&quot;)
+<span class="fc" id="L16">public class RomanConverterServiceImpl extends RemoteServiceServlet implements</span>
+        RomanConverterService {
+
+<span class="fc" id="L19">    protected static final String[] Romains= {&quot;M&quot;,&quot;CM&quot;,&quot;D&quot;,&quot;CD&quot;,&quot;C&quot;,&quot;XC&quot;,&quot;L&quot;,&quot;XL&quot;,&quot;X&quot;,&quot;IX&quot;,&quot;V&quot;,&quot;IV&quot;,&quot;I&quot;};</span>
+<span class="fc" id="L20">    protected static final Integer[] Arabes= {1000,900,500,400,100,90,50,40,10,9,5,4,1};</span>
+
+    /**
+     * Méthode de conversion d'une date en chiffre Arabe a convertir en Romain
+     * @param NotreChiffre
+     * @return
+     * @throws IllegalArgumentException 
+     */
+    @Override
+    public String convertDateYears(String NotreChiffre) throws IllegalArgumentException {
+<span class="fc" id="L30">        String resultat = &quot;&quot;;</span>
+<span class="fc" id="L31">        String other = &quot;&quot;;</span>
+        
+<span class="fc" id="L33">        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();</span>
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (int i = 0; i &lt; NotreChiffre.length(); i++){</span>
+<span class="pc bpc" id="L35" title="2 of 6 branches missed.">            if (&quot;/&quot;.equals(String.valueOf(NotreChiffre.charAt(i))) || &quot;-&quot;.equals(String.valueOf(NotreChiffre.charAt(i))) || &quot;.&quot;.equals(String.valueOf(NotreChiffre.charAt(i)))){</span>
+<span class="fc" id="L36">                resultat = resultat + instance.convertArabeToRoman(Integer.parseInt(other));</span>
+<span class="fc" id="L37">                resultat = resultat + &quot;/&quot;;</span>
+<span class="fc" id="L38">                other = &quot;&quot;;</span>
+            } else {
+<span class="fc" id="L40">                other = other + String.valueOf(NotreChiffre.charAt(i));</span>
+            }
+        }
+<span class="fc" id="L43">        resultat = resultat + instance.convertArabeToRoman(Integer.parseInt(other));</span>
+<span class="fc" id="L44">        return resultat;</span>
+        
+    }
+    /**
+     * Méthode de conversion Roman to Arab
+     * @param NotreChiffre
+     * @return
+     * @throws IllegalArgumentException 
+     */
+
+    @Override
+    public Integer convertRomanToArabe(String NotreChiffre) throws IllegalArgumentException {
+        
+<span class="fc" id="L57">        RomanConverterServiceImpl instance = new RomanConverterServiceImpl();</span>
+<span class="fc" id="L58">        Integer a = Arabes[instance.findRomanIdByValue(String.valueOf(NotreChiffre.charAt(0)))];</span>
+<span class="fc" id="L59">        Integer b = 0;</span>
+<span class="fc" id="L60">        Integer resultat = a;</span>
+        
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for (int i = 1; i &lt; NotreChiffre.length(); i++){</span>
+<span class="fc" id="L63">            b = Arabes[instance.findRomanIdByValue(String.valueOf(NotreChiffre.charAt(i)))];</span>
+            
+<span class="fc bfc" id="L65" title="All 2 branches covered.">            if (b &lt;= a){</span>
+<span class="fc" id="L66">                resultat = resultat + b;</span>
+            } else {
+<span class="fc" id="L68">                resultat = resultat + b -(2*a);</span>
+            }
+<span class="fc" id="L70">            a = b;</span>
+        }
+<span class="fc" id="L72">        return resultat;</span>
+    }
+
+    /**
+     * Méthode de conversion Arabe to Roman 
+     * @param NotreChiffre
+     * @return
+     * @throws IllegalArgumentException 
+     */
+ @Override
+    public String convertArabeToRoman(Integer NotreChiffre) throws IllegalArgumentException {
+<span class="fc" id="L83">        String resultat = &quot;&quot;;</span>
+<span class="fc" id="L84">        Integer index = 0;</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">        while (NotreChiffre != 0) {</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">            if ((NotreChiffre - Arabes[index]) &lt; 0){</span>
+<span class="fc" id="L87">                index += 1;</span>
+            }
+            else {
+<span class="fc" id="L90">                resultat = resultat + Romains[index];</span>
+<span class="fc" id="L91">                NotreChiffre = NotreChiffre - Arabes[index];</span>
+            }
+        }
+<span class="fc" id="L94">        return resultat; //TEST</span>
+    }
+    
+    public Integer findRomanIdByValue(String value){
+<span class="fc" id="L98">        Integer id = 0;</span>
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        for (int i = 0; i &lt; Romains.length; i++){</span>
+<span class="fc bfc" id="L100" title="All 2 branches covered.">            if (Romains[i].equals(value)){</span>
+<span class="fc" id="L101">                id = i;</span>
+            }
+        }
+<span class="fc" id="L104">        return id;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

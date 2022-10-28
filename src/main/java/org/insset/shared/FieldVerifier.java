@@ -1,5 +1,10 @@
 package org.insset.shared;
 
+import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.regexp.shared.RegExp;
+import com.google.gwt.regexp.shared.MatchResult;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /**
  * <p>
  * FieldVerifier validates that the name the user enters is valid.
@@ -51,18 +56,40 @@ public class FieldVerifier {
      * @param name the name to validate
      * @return true if valid, false if invalid
      */
-    public static boolean isValidDecimal(Integer nbr) {
-        //Implement your code
-        return true;
+    public static boolean isValidDecimal(Integer NotreChiffre) {
+        /*
+         * Renvoie une instance d'un décimal
+         */
+        return NotreChiffre instanceof Integer;
     }
 
-    public static boolean isValidRoman(String nbr) {
-        //Implement your code
-        return true;
+    public static boolean isValidRoman(String NotreChiffre) {
+        /**
+         * Vérifie par expréssion réguilère que le String fournit et bien un chiffre Romain
+         */
+        
+        MatchResult path = RegExp.compile("^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$").exec(NotreChiffre);
+        if (path == null )  {
+            return false;
+        } else {
+            return true;
+        }
+               
     }
 
-    public static boolean isValidDate(String date) {
-        //Implement your code
-        return true;
+    public static boolean isValidDate(String NotreDate) {
+        /*
+        * Vérifie que la date fournit en est bien une 
+        */
+        if (NotreDate == null){
+            return false;
+        }
+
+        MatchResult path = RegExp.compile("^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$").exec(NotreDate);
+        if (path == null )  {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
