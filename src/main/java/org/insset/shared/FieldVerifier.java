@@ -3,6 +3,7 @@ package org.insset.shared;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.regexp.shared.RegExp;
 import com.google.gwt.regexp.shared.MatchResult;
+import static java.lang.Math.ceil;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /**
@@ -91,5 +92,14 @@ public class FieldVerifier {
         } else {
             return true;
         }
+        
+    }
+    
+         public static boolean isValidInt(Integer nbr) {
+        if(ceil(nbr) == nbr)
+        {
+            return true;
+        }
+        return false;
     }
 }

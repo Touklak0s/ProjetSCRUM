@@ -10,31 +10,35 @@ import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.ui.RootPanel;
 import org.insset.client.exemple.ExemplePresenter;
 import org.insset.client.calculator.roman.CalculatorRomainPresenter;
+import org.insset.client.pourcentage.Pourcentage;
 
 /**
  *
  * @author user
  */
-<span class="nc" id="L18">public class HistoryListener implements ValueChangeHandler&lt;String&gt; {</span>
+<span class="nc" id="L19">public class HistoryListener implements ValueChangeHandler&lt;String&gt; {</span>
 
     @Override
     public void onValueChange(ValueChangeEvent&lt;String&gt; event) {
 
         //Accès a la page de conversion roman
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (event.getValue().equals(&quot;roman&quot;)) {</span>
-<span class="nc" id="L25">            RootPanel.get().clear();</span>
-<span class="nc" id="L26">            RootPanel.get().add(new CalculatorRomainPresenter());</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        if (event.getValue().equals(&quot;roman&quot;)) {</span>
+<span class="nc" id="L26">            RootPanel.get().clear();</span>
+<span class="nc" id="L27">            RootPanel.get().add(new CalculatorRomainPresenter());</span>
         }
 
         //Accès a la page d'exemple
-<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (event.getValue().equals(&quot;exemple&quot;)) {</span>
-<span class="nc" id="L31">            RootPanel.get().clear();</span>
-<span class="nc" id="L32">            RootPanel.get().add(new ExemplePresenter());</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        if (event.getValue().equals(&quot;exemple&quot;)) {</span>
+<span class="nc" id="L32">            RootPanel.get().clear();</span>
+<span class="nc" id="L33">            RootPanel.get().add(new ExemplePresenter());</span>
         }
 
         //Accès a la page pourcentage
-        //Add your code 
-<span class="nc" id="L37">    }</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">        if (event.getValue().equals(&quot;pourcentage&quot;)) {</span>
+<span class="nc" id="L38">            RootPanel.get().clear();</span>
+<span class="nc" id="L39">            RootPanel.get().add(new Pourcentage());</span>
+        }
+<span class="nc" id="L41">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

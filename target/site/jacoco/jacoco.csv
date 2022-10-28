@@ -5,9 +5,23 @@ ProjetSCRUM,org.insset.client.menu,Menu.new Scheduler.ScheduledCommand() {...},1
 ProjetSCRUM,org.insset.client.menu,Menu.new Scheduler.ScheduledCommand() {...},10,0,0,0,3,0,2,0,2,0
 ProjetSCRUM,org.insset.client.message.dialogbox,DialogBoxInssetPresenter,79,0,0,0,22,0,2,0,2,0
 ProjetSCRUM,org.insset.client.message.dialogbox,DialogBoxInssetPresenter.new ClickHandler() {...},10,0,0,0,3,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage,214,0,6,0,37,0,9,0,6,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new AsyncCallback() {...},65,0,0,0,7,0,3,0,3,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new AsyncCallback() {...},65,0,0,0,7,0,3,0,3,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new AsyncCallback() {...},65,0,0,0,7,0,3,0,3,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},10,0,0,0,3,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},17,0,0,0,4,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},17,0,0,0,4,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},17,0,0,0,4,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},17,0,0,0,4,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},10,0,0,0,3,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},10,0,0,0,3,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},17,0,0,0,4,0,2,0,2,0
+ProjetSCRUM,org.insset.client.pourcentage,Pourcentage.new ClickHandler() {...},17,0,0,0,4,0,2,0,2,0
 ProjetSCRUM,org.insset.client,calculatorInsset,17,0,2,0,7,0,3,0,2,0
-ProjetSCRUM,org.insset.client,HistoryListener,30,0,4,0,8,0,4,0,2,0
+ProjetSCRUM,org.insset.client,HistoryListener,43,0,6,0,11,0,5,0,2,0
 ProjetSCRUM,org.insset.server,RomanConverterServiceImpl,0,353,2,18,0,38,2,14,0,6
+ProjetSCRUM,org.insset.server,PourcentageServiceImpl,0,147,1,3,0,17,1,5,0,4
 ProjetSCRUM,org.insset.server,ExempleServiceImpl,0,32,0,2,0,6,0,3,0,2
 ProjetSCRUM,org.insset.client.calculator.roman,CalculatorRomainPresenter,177,0,8,0,42,0,10,0,6,0
 ProjetSCRUM,org.insset.client.calculator.roman,CalculatorRomainPresenter.new AsyncCallback() {...},23,0,0,0,5,0,3,0,3,0
@@ -23,4 +37,4 @@ ProjetSCRUM,org.insset.client.exemple,ExemplePresenter,73,0,2,0,18,0,5,0,4,0
 ProjetSCRUM,org.insset.client.exemple,ExemplePresenter.new ClickHandler() {...},10,0,0,0,3,0,2,0,2,0
 ProjetSCRUM,org.insset.client.exemple,ExemplePresenter.new ClickHandler() {...},17,0,0,0,4,0,2,0,2,0
 ProjetSCRUM,org.insset.client.exemple,ExemplePresenter.new AsyncCallback() {...},21,0,0,0,5,0,3,0,3,0
-ProjetSCRUM,org.insset.shared,FieldVerifier,3,38,1,9,1,14,2,8,1,4
+ProjetSCRUM,org.insset.shared,FieldVerifier,16,38,3,9,4,14,4,8,2,4
