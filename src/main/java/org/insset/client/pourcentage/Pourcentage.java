@@ -196,7 +196,7 @@ public class Pourcentage extends Composite {
             return;
         }
         String[] tabVal = new String[] {valC.getText(), valD.getText()};
-        service.calculPourcentageGAIN(tabVal, new AsyncCallback<String>() {            
+        service.calculPourcentageINITIAL(tabVal, new AsyncCallback<String>() {            
             @Override
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user
@@ -222,7 +222,7 @@ public class Pourcentage extends Composite {
             return;
         }
         String[] tabVal = new String[] {valE.getText(), valF.getText()};
-        service.calculPourcentageGAIN(tabVal, new AsyncCallback<String>() {            
+        service.calculDiviseur(tabVal, new AsyncCallback<String>() {            
             @Override
             public void onFailure(Throwable caught) {
                 // Show the RPC error message to the user

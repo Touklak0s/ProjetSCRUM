@@ -33,7 +33,7 @@
             </g:FlowPanel>
             <g:FlowPanel>
                 <g:Label ui:field="errorLabelRToB" ></g:Label>
-                <g:SubmitButton ui:field="boutonConvertRToA" text="TEST POURCENTAGE"/>
+                <g:SubmitButton ui:field="boutonConvertRToA" text="Calculer"/>
             </g:FlowPanel>
             <g:FlowPanel >
                 
@@ -77,7 +77,7 @@
             <g:FlowPanel >
                 
                 <g:ResetButton ui:field="boutonClearD" text="Clear"/>
-                <g:SubmitButton ui:field="boutonConvertRToC" text="Convertir"/>
+                <g:SubmitButton ui:field="boutonConvertRToC" text="Calculer"/>
             </g:FlowPanel>
         </g:FlowPanel>
     </div>
@@ -117,7 +117,7 @@
             <g:FlowPanel >
                 
                 <g:ResetButton ui:field="boutonClearF" text="Clear"/>
-                <g:SubmitButton ui:field="boutonConvertRToE" text="Convertir"/>
+                <g:SubmitButton ui:field="boutonConvertRToE" text="Diviser"/>
             </g:FlowPanel>
         </g:FlowPanel>
     </div>

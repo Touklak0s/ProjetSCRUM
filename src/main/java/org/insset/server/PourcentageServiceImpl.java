@@ -47,14 +47,16 @@ public class PourcentageServiceImpl extends RemoteServiceServlet implements
     public String calculDiviseur(String[] tabVal) throws IllegalArgumentException {
         
         float result;
-        String s = new String();
+        
+        DecimalFormat df = new DecimalFormat("##.##");
+        df.setRoundingMode(RoundingMode.DOWN);
         
         if ((Integer.parseInt(tabVal[0]) == 0) || (Integer.parseInt(tabVal[1]) == 0))
         {
             return "Division par 0 impossible !";
         }else{
-            result = Integer.parseInt(tabVal[0]) / Integer.parseInt(tabVal[1]);
-            return "Resultat de votre division : " + s.valueOf(result);
+            result = Float.parseFloat(tabVal[0]) / Float.parseFloat(tabVal[1]);
+            return "Resultat de votre division : " + df.format(result);
         }
         
     }

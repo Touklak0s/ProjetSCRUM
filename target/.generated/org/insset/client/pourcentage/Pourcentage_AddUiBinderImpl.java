@@ -1,4 +1,4 @@
-// .ui.xml template last modified: 1666963445000
+// .ui.xml template last modified: 1666964373000
 package org.insset.client.pourcentage;
 
 import com.google.gwt.core.client.GWT;
@@ -496,7 +496,7 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.SubmitButton boutonConvertRToA = (com.google.gwt.user.client.ui.SubmitButton) GWT.create(com.google.gwt.user.client.ui.SubmitButton.class);
       // Setup section.
-      boutonConvertRToA.setText("TEST POURCENTAGE");
+      boutonConvertRToA.setText("Calculer");
 
       this.owner.boutonConvertRToA = boutonConvertRToA;
 
@@ -954,7 +954,7 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.SubmitButton boutonConvertRToC = (com.google.gwt.user.client.ui.SubmitButton) GWT.create(com.google.gwt.user.client.ui.SubmitButton.class);
       // Setup section.
-      boutonConvertRToC.setText("Convertir");
+      boutonConvertRToC.setText("Calculer");
 
       this.owner.boutonConvertRToC = boutonConvertRToC;
 
@@ -1380,7 +1380,7 @@ public class Pourcentage_AddUiBinderImpl implements UiBinder<com.google.gwt.user
       // Creation section.
       final com.google.gwt.user.client.ui.SubmitButton boutonConvertRToE = (com.google.gwt.user.client.ui.SubmitButton) GWT.create(com.google.gwt.user.client.ui.SubmitButton.class);
       // Setup section.
-      boutonConvertRToE.setText("Convertir");
+      boutonConvertRToE.setText("Diviser");
 
       this.owner.boutonConvertRToE = boutonConvertRToE;
 
