@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Pourcentage.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjetSCRUM</a> &gt; <a href="index.source.html" class="el_package">org.insset.client.pourcentage</a> &gt; <span class="el_source">Pourcentage.java</span></div><h1>Pourcentage.java</h1><pre class="source lang-java linenums">package org.insset.client.pourcentage;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ResetButton;
+import com.google.gwt.user.client.ui.SubmitButton;
+import com.google.gwt.user.client.ui.TextBox;
+import org.insset.client.message.dialogbox.DialogBoxInssetPresenter;
+import org.insset.client.service.PourcentageService;
+import org.insset.client.service.PourcentageServiceAsync;
+import org.insset.shared.FieldVerifier;
+
+/**
+ *
+ * @author insset
+ */
+public class Pourcentage extends Composite {
+    
+    @UiField
+    public ResetButton boutonClearA;
+    @UiField
+    public SubmitButton boutonConvertRToA;
+    @UiField
+    public TextBox valA;
+    @UiField
+    public Label errorLabelRToA;
+    @UiField
+    public ResetButton boutonClearB;
+    @UiField
+    public TextBox valB;
+    @UiField
+    public Label errorLabelRToB;
+    
+    @UiField
+    public ResetButton boutonClearC;
+    @UiField
+    public SubmitButton boutonConvertRToC;
+    @UiField
+    public TextBox valC;
+    @UiField
+    public Label errorLabelRToC;
+    @UiField
+    public ResetButton boutonClearD;
+    @UiField
+    public TextBox valD;
+    @UiField
+    public Label errorLabelRToD;
+    
+    @UiField
+    public ResetButton boutonClearE;
+    @UiField
+    public SubmitButton boutonConvertRToE;
+    @UiField
+    public TextBox valE;
+    @UiField
+    public Label errorLabelRToE;
+    @UiField
+    public ResetButton boutonClearF;
+    @UiField
+    public TextBox valF;
+    @UiField
+    public Label errorLabelRToF;
+    
+    interface AddUiBinder extends UiBinder&lt;HTMLPanel, Pourcentage&gt; {
+    }
+    
+    /**
+     * Create UiBinder for the view
+     */
+<span class="nc" id="L78">    private static AddUiBinder ourUiBinder = GWT.create(AddUiBinder.class);</span>
+    
+    /**
+     * Create a remote service proxy to talk to the server-side Greeting
+     * service.
+     */
+<span class="nc" id="L84">    private final PourcentageServiceAsync service = GWT.create(PourcentageService.class);</span>
+
+    /**
+     * Constructeur
+     */
+<span class="nc" id="L89">    public Pourcentage() {</span>
+<span class="nc" id="L90">        initWidget(ourUiBinder.createAndBindUi(this));</span>
+<span class="nc" id="L91">        initHandler();</span>
+<span class="nc" id="L92">    }</span>
+
+    /**
+     * Init des handler
+     */
+    private void initHandler() {
+<span class="nc" id="L98">        boutonClearA.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L101">                valA.setText(&quot;&quot;);</span>
+<span class="nc" id="L102">                errorLabelRToA.setText(&quot;&quot;);</span>
+<span class="nc" id="L103">            }</span>
+        });
+<span class="nc" id="L105">        boutonConvertRToA.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L108">               calculPourcentageGAIN();</span>
+<span class="nc" id="L109">            }</span>
+
+        });
+<span class="nc" id="L112">        boutonClearB.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L115">                valB.setText(&quot;&quot;);</span>
+<span class="nc" id="L116">                errorLabelRToB.setText(&quot;&quot;);</span>
+<span class="nc" id="L117">            }</span>
+        });
+<span class="nc" id="L119">        boutonClearC.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L122">                valC.setText(&quot;&quot;);</span>
+<span class="nc" id="L123">                errorLabelRToC.setText(&quot;&quot;);</span>
+<span class="nc" id="L124">            }</span>
+        });
+<span class="nc" id="L126">        boutonConvertRToC.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L129">               calculPourcentageINITIAL();</span>
+<span class="nc" id="L130">            }</span>
+
+        });
+<span class="nc" id="L133">        boutonClearD.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L136">                valD.setText(&quot;&quot;);</span>
+<span class="nc" id="L137">                errorLabelRToD.setText(&quot;&quot;);</span>
+<span class="nc" id="L138">            }</span>
+        });
+<span class="nc" id="L140">        boutonClearE.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L143">                valE.setText(&quot;&quot;);</span>
+<span class="nc" id="L144">                errorLabelRToE.setText(&quot;&quot;);</span>
+<span class="nc" id="L145">            }</span>
+        });
+<span class="nc" id="L147">        boutonConvertRToE.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L150">               calculDiviseur();</span>
+<span class="nc" id="L151">            }</span>
+
+        });
+<span class="nc" id="L154">        boutonClearF.addClickHandler(new ClickHandler() {</span>
+            @Override
+            public void onClick(ClickEvent event) {
+<span class="nc" id="L157">                valF.setText(&quot;&quot;);</span>
+<span class="nc" id="L158">                errorLabelRToF.setText(&quot;&quot;);</span>
+<span class="nc" id="L159">            }</span>
+        });
+<span class="nc" id="L161">    }</span>
+    
+    /**
+     * call server
+     */
+    private void calculPourcentageGAIN() {
+<span class="nc bnc" id="L167" title="All 2 branches missed.">        if (!FieldVerifier.isValidInt(Integer.parseInt(valA.getText()))) {</span>
+<span class="nc" id="L168">            errorLabelRToA.addStyleName(&quot;serverResponseLabelError&quot;);</span>
+<span class="nc" id="L169">            errorLabelRToA.setText(&quot;Format incorect&quot;);</span>
+<span class="nc" id="L170">            return;</span>
+        }
+<span class="nc" id="L172">        String[] tabVal = new String[] {valA.getText(), valB.getText()};</span>
+<span class="nc" id="L173">        service.calculPourcentageGAIN(tabVal, new AsyncCallback&lt;String&gt;() {            </span>
+            @Override
+            public void onFailure(Throwable caught) {
+                // Show the RPC error message to the user
+//                Window.alert(SERVER_ERROR);
+<span class="nc" id="L178">                errorLabelRToA.setText(&quot;Failure    !!!!&quot;);</span>
+<span class="nc" id="L179">                new DialogBoxInssetPresenter(&quot;Erreur&quot;, valA.getText()+&quot; &quot;+valB.getText(), String.valueOf(caught));</span>
+<span class="nc" id="L180">            }</span>
+            
+            public void onSuccess(String result) {
+<span class="nc" id="L183">                errorLabelRToA.setText(String.valueOf(result));</span>
+<span class="nc" id="L184">                new DialogBoxInssetPresenter(&quot;Pourcentage&quot;, valA.getText()+&quot; &quot;+valB.getText(), String.valueOf(result));</span>
+<span class="nc" id="L185">            }</span>
+        });
+<span class="nc" id="L187">    }</span>
+    
+    /**
+     * call server
+     */
+    private void calculPourcentageINITIAL() {
+<span class="nc bnc" id="L193" title="All 2 branches missed.">        if (!FieldVerifier.isValidInt(Integer.parseInt(valA.getText()))) {</span>
+<span class="nc" id="L194">            errorLabelRToC.addStyleName(&quot;serverResponseLabelError&quot;);</span>
+<span class="nc" id="L195">            errorLabelRToC.setText(&quot;Format incorect&quot;);</span>
+<span class="nc" id="L196">            return;</span>
+        }
+<span class="nc" id="L198">        String[] tabVal = new String[] {valC.getText(), valD.getText()};</span>
+<span class="nc" id="L199">        service.calculPourcentageINITIAL(tabVal, new AsyncCallback&lt;String&gt;() {            </span>
+            @Override
+            public void onFailure(Throwable caught) {
+                // Show the RPC error message to the user
+//                Window.alert(SERVER_ERROR);
+<span class="nc" id="L204">                errorLabelRToC.setText(&quot;Failure    !!!!&quot;);</span>
+<span class="nc" id="L205">                new DialogBoxInssetPresenter(&quot;Erreur&quot;, valC.getText()+&quot; &quot;+valD.getText(), String.valueOf(caught));</span>
+<span class="nc" id="L206">            }</span>
+            
+            public void onSuccess(String result) {
+<span class="nc" id="L209">                errorLabelRToC.setText(String.valueOf(result));</span>
+<span class="nc" id="L210">                new DialogBoxInssetPresenter(&quot;Pourcentage&quot;, valC.getText()+&quot; &quot;+valD.getText(), String.valueOf(result));</span>
+<span class="nc" id="L211">            }</span>
+        });
+<span class="nc" id="L213">    }</span>
+    
+    /**
+     * call server
+     */
+    private void calculDiviseur() {
+<span class="nc bnc" id="L219" title="All 2 branches missed.">        if (!FieldVerifier.isValidInt(Integer.parseInt(valA.getText()))) {</span>
+<span class="nc" id="L220">            errorLabelRToE.addStyleName(&quot;serverResponseLabelError&quot;);</span>
+<span class="nc" id="L221">            errorLabelRToE.setText(&quot;Format incorect&quot;);</span>
+<span class="nc" id="L222">            return;</span>
+        }
+<span class="nc" id="L224">        String[] tabVal = new String[] {valE.getText(), valF.getText()};</span>
+<span class="nc" id="L225">        service.calculDiviseur(tabVal, new AsyncCallback&lt;String&gt;() {            </span>
+            @Override
+            public void onFailure(Throwable caught) {
+                // Show the RPC error message to the user
+//                Window.alert(SERVER_ERROR);
+<span class="nc" id="L230">                errorLabelRToE.setText(&quot;Failure    !!!!&quot;);</span>
+<span class="nc" id="L231">                new DialogBoxInssetPresenter(&quot;Erreur&quot;, valE.getText()+&quot; &quot;+valF.getText(), String.valueOf(caught));</span>
+<span class="nc" id="L232">            }</span>
+            
+            public void onSuccess(String result) {
+<span class="nc" id="L235">                errorLabelRToE.setText(String.valueOf(result));</span>
+<span class="nc" id="L236">                new DialogBoxInssetPresenter(&quot;Pourcentage&quot;, valE.getText()+&quot; &quot;+valF.getText(), String.valueOf(result));</span>
+<span class="nc" id="L237">            }</span>
+        });
+<span class="nc" id="L239">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>

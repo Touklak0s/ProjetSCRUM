@@ -1,4 +1,4 @@
-// .ui.xml template last modified: 1666881702000
+// .ui.xml template last modified: 1666965989000
 package org.insset.client.exemple;
 
 import com.google.gwt.core.client.GWT;

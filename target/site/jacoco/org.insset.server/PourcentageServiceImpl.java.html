@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PourcentageServiceImpl.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ProjetSCRUM</a> &gt; <a href="index.source.html" class="el_package">org.insset.server</a> &gt; <span class="el_source">PourcentageServiceImpl.java</span></div><h1>PourcentageServiceImpl.java</h1><pre class="source lang-java linenums">package org.insset.server;
+
+import com.google.gwt.user.server.rpc.RemoteServiceServlet;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import org.insset.client.service.PourcentageService;
+
+/**
+ * The server side implementation of the RPC service.
+ */
+@SuppressWarnings(&quot;serial&quot;)
+<span class="fc" id="L12">public class PourcentageServiceImpl extends RemoteServiceServlet implements</span>
+        PourcentageService {
+
+    @Override
+    public String calculPourcentageGAIN(String[] tabVal) throws IllegalArgumentException {
+        
+        float prix_remise;
+        float valeur_remise;
+        
+<span class="fc" id="L21">        DecimalFormat df = new DecimalFormat(&quot;##.##&quot;);</span>
+<span class="fc" id="L22">        df.setRoundingMode(RoundingMode.DOWN);</span>
+        
+<span class="fc" id="L24">        valeur_remise = Integer.parseInt(tabVal[1]) * (float) 0.01;</span>
+<span class="fc" id="L25">        prix_remise = Integer.parseInt(tabVal[0]) * valeur_remise;</span>
+        
+<span class="fc" id="L27">        return &quot;Votre article est au prix originel de &quot; + tabVal[0] + &quot; avec une réduction de &quot; + tabVal[1] + &quot;% ce qui vous fait économiser : &quot; + df.format(prix_remise)+&quot;€&quot;;</span>
+    }
+    
+    @Override
+    public String calculPourcentageINITIAL(String[] tabVal) throws IllegalArgumentException {
+        
+        float prix_depart;
+        float valeur_remise;
+        
+<span class="fc" id="L36">        DecimalFormat df = new DecimalFormat(&quot;##.##&quot;);</span>
+<span class="fc" id="L37">        df.setRoundingMode(RoundingMode.DOWN);</span>
+        
+<span class="fc" id="L39">        valeur_remise = Integer.parseInt(tabVal[1]) * (float) 0.01;</span>
+<span class="fc" id="L40">        prix_depart = Integer.parseInt(tabVal[0]) * (1+valeur_remise);</span>
+        
+<span class="fc" id="L42">        return &quot;Votre article est au prix solder de &quot; + tabVal[0] + &quot; avec une réduction de &quot; + tabVal[1] + &quot;% ce qui vous un prix initial de : &quot; + df.format(prix_depart)+&quot;€&quot;;</span>
+        
+    }
+    
+    @Override
+    public String calculDiviseur(String[] tabVal) throws IllegalArgumentException {
+        
+        float result;
+        
+<span class="fc" id="L51">        DecimalFormat df = new DecimalFormat(&quot;##.##&quot;);</span>
+<span class="fc" id="L52">        df.setRoundingMode(RoundingMode.DOWN);</span>
+        
+<span class="pc bpc" id="L54" title="1 of 4 branches missed.">        if ((Integer.parseInt(tabVal[0]) == 0) || (Integer.parseInt(tabVal[1]) == 0))</span>
+        {
+<span class="fc" id="L56">            return &quot;Division par 0 impossible !&quot;;</span>
+        }else{
+<span class="fc" id="L58">            result = Float.parseFloat(tabVal[0]) / Float.parseFloat(tabVal[1]);</span>
+<span class="fc" id="L59">            return &quot;Resultat de votre division : &quot; + df.format(result);</span>
+        }
+        
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.0.201403182114</span></div></body></html>
